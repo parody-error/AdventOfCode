@@ -23,8 +23,22 @@ def process(args):
     return args[0]
 
 
+def find_process_values(args):
+    for x in range(100):
+        for y in range(100):
+            modified_args = args[:]
+            modified_args[1] = x
+            modified_args[2] = y
+            result = process(modified_args)
+            if result == 19690720:
+                return f'{100 * x + y}'
+
+    return '0000'
+
+
 if __name__ == '__main__':
     with open(input_path) as input_file:
         line = input_file.readline()
-        result = process([int(s) for s in line.strip().split(',')])
-        print(result)
+        values = [int(s) for s in line.strip().split(',')]
+        process_values = find_process_values(values)
+        print(process_values)
