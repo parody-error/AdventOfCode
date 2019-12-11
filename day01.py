@@ -1,11 +1,10 @@
 
-from math import floor
 
 input_path = 'input.txt'
 
 
 def fuel_mass(mass):
-    return int(floor(mass)/3 - 2)
+    return mass // 3 - 2
 
 
 def total_fuel_for_mass(module_mass):
